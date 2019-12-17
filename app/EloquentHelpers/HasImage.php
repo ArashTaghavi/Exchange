@@ -4,6 +4,7 @@ namespace App\EloquentHelpers;
 
 use Image;
 
+
 trait HasImage
 {
     public function fillImage($request)
