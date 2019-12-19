@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile');
             $table->string('email')->unique()->nullable();
             $table->string('code')->nullable();
+            $table->string('password')->nullable();
             $table->string('profile_image')->nullable();
             $table->boolean('is_block')->default(false);
             $table->timestamp('email_verified_at')->nullable();

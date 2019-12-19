@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 export default {
     data() {
         return {
-            loading: false,
+            loading: true,
             form: {}
         }
     },

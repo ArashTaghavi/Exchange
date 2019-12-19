@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -37,4 +39,38 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function username()
+    {
+        return 'mobile';
+    }
+
+    public function validateLogin(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+            /*'captcha'=>'required|captcha'*/
+        ]);
+        $validator->after(function ($validator) use ($request) {
+            $user = User::whereMobile($request->get($this->username()))->orWhere('email', $request->get($this->username()))->first();
+            if (!empty($user)) {
+                $passwordValidation = \Hash::check($request->get('password'), $user->password);
+                if (!$passwordValidation) {
+                    $validator->errors()->add('mobile', __('auth.failed'));
+                }
+                if ($user->is_block) {
+                    $validator->errors()->add('mobile', __('auth.blocked'));
+                }
+
+            }
+        });
+        $validator->validate();
+    }
+
+    public function authenticated(Request $request, $user)
+    {
+        return redirect('/user-dashboard');
+    }
+
 }

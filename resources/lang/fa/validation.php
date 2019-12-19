@@ -165,21 +165,8 @@ return [
     'attributes' => [
         'username' => 'نام کاربری',
         'password' => 'کلمه ی عبور',
-        'name' => 'نام',
-        'email' => 'ایمیل',
-        'expires_date' => 'تاریخ انقضا',
-        'permissions' => 'دسترسی',
-        'permission' => 'دسترسی',
+        'profile_image' => 'تصویر',
         'title' => 'عنوان',
-        'captcha' => 'کد اعتبارسنجی',
-        'source_id' => 'منبع اطلاعاتی',
-        'group_ids' => 'گروه کاربری',
-        'start_date' => 'تاریخ شروع',
-        'end_date' => 'تاریخ پایان',
-        'datasource_id' => 'سبد اطلاعاتی',
-        'settings' => 'تنظیمات',
-        'expired_at' => 'تاریخ انقضا',
-        'chart_id' => 'چارت سازمانی',
     ],
 
 ];

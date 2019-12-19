@@ -15,10 +15,11 @@
 
     <!-- App styles -->
     <link rel="stylesheet" href="/dashboard-assets/css/app.min.css">
+    <link rel="stylesheet" href="/dashboard-assets/css/custom.css">
 </head>
 
 <body data-sa-theme="2">
-    <div id="app"></div>
+<div id="app"></div>
 
 <!-- Javascript -->
 <!-- Vendors -->

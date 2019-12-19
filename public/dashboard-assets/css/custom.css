@@ -1,0 +1,11 @@
+.swal2-styled.swal2-confirm, .swal2-title {
+    direction: rtl !important;
+}
+
+.swal2-title {
+    color: #3c3c3c !important;
+}
+
+th, td {
+    text-align: center;
+}

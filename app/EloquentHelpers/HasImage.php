@@ -48,7 +48,7 @@ trait HasImage
     {
         switch ($mime) {
             case 'image/jpeg':
-                $extension = 'jpg';
+                $extension = 'jpeg';
                 break;
             case 'image/jpg':
                 $extension = 'jpg';

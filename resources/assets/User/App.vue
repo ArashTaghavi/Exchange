@@ -15,7 +15,11 @@
     import Theme from './Components/Layout/Theme';
 
     export default {
-
+        created() {
+            axios.get('/profile').then(response => {
+                localStorage.setItem('USER_INFORMATION', JSON.stringify(response.data));
+            }).catch(error => this.errorNotify(error))
+        },
         components: {Header, Sidebar, Theme}
     }
 </script>
