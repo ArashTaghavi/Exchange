@@ -19,7 +19,7 @@ class CreateDocumentsTable extends Migration
             $table->string('profile_image');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->tinyInteger('approved')->default(2);
+            $table->integer('approved')->default(2);
             $table->timestamps();
         });
     }

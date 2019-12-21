@@ -167,6 +167,12 @@ return [
         'password' => 'کلمه ی عبور',
         'profile_image' => 'تصویر',
         'title' => 'عنوان',
+        'bank_name' => 'نام بانک',
+        'card_no' => 'شماره کارت',
+        'sheba_no' => 'شماره شبا',
+        'account_no' => 'شماره حساب',
+        'amount'=>'مبلغ',
+        'currency_id'=>'نوع ارز',
     ],
 
 ];

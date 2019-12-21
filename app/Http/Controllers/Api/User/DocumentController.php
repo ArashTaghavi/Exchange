@@ -13,7 +13,7 @@ class DocumentController extends Controller
 
     public function index()
     {
-        return Document::where('user_id', Auth::id())->get();
+        return Document::where('user_id', Auth::id())->orderBy('id','DESC')->get();
     }
 
     public function getByID($id)

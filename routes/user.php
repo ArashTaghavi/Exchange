@@ -1,6 +1,7 @@
 <?php
 Route::middleware(['web', 'auth:web'])->group(function () {
     Route::get('/user-dashboard', 'DashboardController@index');
+    Route::get('/logout', 'ProfileController@logout');
     Route::get('/user-dashboard/{all}', 'DashboardController@index')->where(['all' => '.*']);
 
     Route::prefix('api/user')->name('user.')->group(function () {
@@ -9,6 +10,7 @@ Route::middleware(['web', 'auth:web'])->group(function () {
         Route::prefix('profile')->name('profile.')->group(function () {
             Route::get('/', 'ProfileController@index')->name('index');
             Route::put('/', 'ProfileController@update')->name('update');
+            Route::post('/change-password', 'ProfileController@change_password')->name('change-password');
         });
         // ================================ Profile ================================
 
@@ -21,6 +23,33 @@ Route::middleware(['web', 'auth:web'])->group(function () {
             Route::delete('/{id}', 'DocumentController@destroy')->name('destroy');
         });
         // ================================ Documents ================================
+
+        // ================================ Cards ================================
+        Route::prefix('cards')->name('cards.')->group(function () {
+            Route::get('/', 'CardController@index')->name('index');
+            Route::post('/', 'CardController@store')->name('store');
+            Route::get('/{id}', 'CardController@getByID')->name('get-by-id');
+            Route::put('/{id}', 'CardController@update')->name('update');
+            Route::delete('/{id}', 'CardController@destroy')->name('destroy');
+        });
+        // ================================ Cards ================================
+
+        // ================================ Buy Orders ================================
+        Route::prefix('buy-orders')->name('buy-orders.')->group(function () {
+            Route::get('/', 'BuyOrderController@index')->name('index');
+            Route::post('/', 'BuyOrderController@store')->name('store');
+            Route::get('/{id}', 'BuyOrderController@getByID')->name('get-by-id');
+            Route::put('/{id}', 'BuyOrderController@update')->name('update');
+            Route::delete('/{id}', 'BuyOrderController@destroy')->name('destroy');
+            Route::get('/detail/{id}', 'BuyOrderController@detail')->name('detail');
+        });
+        // ================================ Buy Orders ================================
+
+        // ================================ Currencies ================================
+        Route::prefix('helper')->name('helper.')->group(function () {
+            Route::get('/currencies', 'HelperController@currency')->name('currency');
+        });
+        // ================================ Currencies ================================
 
 
     });

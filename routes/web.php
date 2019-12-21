@@ -1,5 +1,6 @@
 <?php
 Route::middleware(['web'])->group(function () {
+    Route::get('/', 'SiteController@index');
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::post('/login', 'Auth\LoginController@login')->name('doLogin');

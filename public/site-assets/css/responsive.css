@@ -1,0 +1,482 @@
+/* ----------------------------------------------------------------------------------------
+* Author        : Bitspeck
+* Template Name : Appt | App Landing HTML Template
+* File          : Appt  responsive file
+* Version       : 1.0
+* ---------------------------------------------------------------------------------------- */
+/*Large screen*/
+/*@media (min-width: 1201px) and (max-width: 1600px){
+    .bnr-overly .col-md-offset-1{
+        margin-left: 5%;
+    }
+    .bnr-overly .col-md-2{
+        width: 18%;
+    }
+    .bnr-overly .text-center{
+        width: 100%;
+    }
+} */
+/* Medium Layout */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .slider-text {
+    margin-top: 60%;
+}
+    .section-border{
+        border: none;
+    }
+    .section-big {
+        padding: 100px 0;
+    }
+    .about-content {
+        padding-top: 0px;
+    }
+    .about-card {
+        margin-bottom: 20px;
+    }
+    .section-title p {
+        width: 96%;
+        margin: 0 auto;
+		margin-bottom: 20px;
+    }
+    .about-text p {
+        width: 97%;
+        margin: 0;
+		text-align: justify;
+		line-height: 28px;
+    }
+	.discription{
+		width: 97%;
+	}
+    .watch img {
+        margin-top: -18%;
+    }
+    .hero-text {
+        top: 55%;
+    }
+    .slider h1 {
+        font-size: 48px;
+    }
+    /*.contact-form {
+		margin: 145px 0 0px;
+	}*/
+    .btn {
+		padding: 10px 30px;
+	}
+    .button-group a {
+		margin-right: 3px;
+	}
+    .button-group a i {
+		left: 5px;
+	}
+	.navbar-nav li{
+		padding: 10px 0px 0px 24px;
+	}
+	.banner-image{
+		top: 35%;
+	}
+	.button-group .store-buttons{
+		width: 50%;
+		margin: auto;
+	}
+	.bnr-overly .text-center{
+		text-align: center;
+		margin: auto;
+		width: 100%;
+    }
+    /*
+    .bnr-overly .col-md-offset-1{
+        margin-left: 0%;
+    }
+    .bnr-overly .col-md-2{
+        width: 20%;
+    } */
+    .single-feature h3{
+        font-size: 18px;
+    }
+}
+
+/* Tablet Layout */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar-nav li {
+        padding: 10px 0px 0px 15px;
+    }
+     .btn {
+		padding: 10px 25px;
+	}
+    .button-group a {
+		margin-right: 3px;
+	}
+    .button-group a i {
+		left: 3px;
+		top: 23px;
+		font-size: 22px;
+	}
+    .nav.navbar-nav {
+		margin-right: 0px;
+	}
+    .navbar-brand img{
+        width: 100px;
+    }
+    .navbar-nav li a {
+		font-size: 14px;
+	}
+    .slider-text h2, .slider-text h3 {
+		font-size: 36px;
+	}
+    .slider-text p {
+		width: 325px;
+	}
+    .slider-text {
+		margin-top: 58%;
+	}
+    .about-card-content h4 {
+		font-size: 20px;
+	}
+    .feature-sm{
+        margin-bottom: 60px;
+    }
+    .price-box h4 {
+        font-size: 22px !important;
+    }
+	.price-box {
+		padding: 50px 40px;
+		background-size: auto 30%;
+	}
+    .bttn-default {
+		padding: 10px 22px;
+	}
+   
+    .bttn-default {
+        font-size: 14px;
+    }
+    .video {
+        margin-bottom: 0px;
+    }
+    .con-phone {
+        margin: 0 auto;
+    }
+    .section-title p {
+        width: 100%;
+        margin: 0 auto;
+    }
+     .about-text p {
+        margin: auto;
+		text-align: justify;
+    }
+    .about-span p {
+		margin-left: 0px;
+    }
+    .slider h1 {
+        font-size: 36px;
+    }
+    .hero-text {
+        top: 50%;
+    }
+	.banner-image{
+		top: 40%;
+	}
+    .contact-form {
+		margin: 18px 0 0px;
+	}
+    .banner2-image img {
+		margin-top: 20%;
+    }
+    .bnr-overly .text-center{
+        width: 100%;
+    }
+	#counter .counter-banner .bnr-overly .counter-text p{
+		font-size: 14px;
+	}
+	#counter .counter-banner .bnr-overly .counter-text h4{
+		font-size: 22px;
+	}
+	.button-group .store-buttons{
+		width: 50%;
+		margin: auto;
+	}
+	.about-span{
+		width: 100%;
+	}
+	.mobile{
+        width: 26%;
+        margin-left: 0;
+        margin-top: 7%;
+	}
+	.row-image , .row-text{
+		width: 100%;
+	}
+	.row-image img{
+		width: 100%;
+	}
+	.store-buttons{
+		text-align: center;
+    }
+    .hidden-xsmobile{
+        margin-left: 0;
+    }
+    .count-in {
+        margin: 35px 0;
+    }
+}
+
+/* Mobile Layout */
+
+@media only screen and (max-width: 767px) {
+    
+    .navbar-toggle {
+        margin-right: 0px;
+        top: -7px;
+    }
+    .navbar-nav li {
+		padding: 10px 30px 0px 30px;
+		text-align: center;
+	}
+    .navbar-nav li.active a:before {
+		bottom: -10px;
+	}
+    .navbar-fixed-bottom .navbar-collapse,
+    .navbar-fixed-top .navbar-collapse {
+        background: #f1f1f1;
+    }
+    
+    .navbar {
+        min-height: 0px;
+    }
+    
+    .mainmenu .navbar-nav {
+        margin: 0;
+    }
+    
+    .mainmenu .navbar-nav li {
+        float: none;
+        display: block;
+    }
+    
+    .mainmenu .navbar-nav li a {
+        padding: 5px 15px;
+        color: inherit;
+    }
+
+    .navbar-fixed-top .navbar-collapse {
+        margin: 17px -15px;
+        padding: 0;
+        box-shadow: 0px 3px 5px 0px #999;
+    }
+    
+    .navbar-fixed-top.sticky-menu .navbar-collapse {
+        margin: 7px -15px 0;
+    }
+
+    
+    .con-phone {
+        margin: 0 auto;
+    }
+    
+    .hero-text{
+        text-align: center;
+    }
+
+    .slider p{
+        margin-bottom: 20px !important;
+        width: 80%;
+        margin: auto;
+        padding-right: 0;
+    }
+
+    .slider-text {
+        margin-top: 38%;
+		text-align: center;
+    }
+    .section-title h2 , .download-inner h2{
+        font-size: 30px;
+    }
+    .slider-text h2,
+    .slider-text h3 {
+        font-size: 30px;
+    }
+    .section-title p {
+        width: 98%;
+        margin: 0 auto;
+		text-align: justify;
+    }
+	.available-inner p{
+		text-align: center;
+	}
+	.available-inner img{
+		margin-top: 20px;
+	}
+    .slider-text p{
+        width: 350px;
+		margin: auto;
+		text-align: justify;
+		font-size: 16px;
+    }
+    .feature-sm{
+        margin-bottom: 50px;
+    }
+    .section-border{
+        border: none;
+    }
+    .compat-content {
+        margin: 35px 0;
+    }
+    .contact-form {
+        margin: 25px 0 0px;
+    }
+	#counter .counter-banner .bnr-overly .counter-text img{
+		margin-bottom: 0px;
+		margin-top: 20px;
+	}
+	.price-box ul li{
+		display: block;
+	}
+	.about-p{
+		margin: 0 22px;
+		width: 95%;
+	}
+	.button-group .store-buttons{
+		width: 50%;
+    margin: auto;
+	}
+	.about-span{
+		width: 98%;
+	}
+	.button-group{
+		text-align: center !important;
+	}
+	.banner-image{
+		display: none;
+    }
+    .count-in{
+        margin-top: 35px;
+    }
+}
+
+
+/* Small Mobile Layout */
+
+@media only screen and (max-width: 520px) {
+    .hero-btn {
+        font-size: 14px;
+        padding: 10px 30px;
+    }
+    .slider-text {
+		margin-top: 50%;
+		transform: translateY(-37%);
+}
+    .section-title p {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .slider-text p {
+		width: 300px;
+}
+    .about-text p {
+    width: 92%;
+    margin: 0 10px;
+}
+    .count-in{
+        margin: 35px 0;
+    }
+    .price-box{
+        margin-bottom: 50px;
+    }
+    .video a {
+		width: 50px;
+		height: 50px;
+	}
+    h2{
+		font-size: 30px;
+	}
+	h4{
+		font-size: 20px;
+	}
+    .download-inner p a img{
+        width: 130px;
+    }
+    .compat-content {
+        margin-bottom: 20px;
+    }
+    .slider h1 {
+        font-size: 28px;
+    }
+    .newsletter-form input[type="submit"] {
+    padding: 11px 8px;
+}
+    
+    .banner-image{
+        visibility: hidden;
+    }
+	.button-group a {
+		margin-right: 0px;
+	}
+	.button-group a p , .button-group a span{
+		font-size: 14px;
+	}
+	.button-group a i {
+		padding-right: 7px;
+		left: 10px;
+		font-size: 20px;
+	}
+	.btn{
+		padding: 10px 30px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .hero-btn {
+        font-size: 12px;
+        padding: 10px 30px;
+    }
+    .slider-text {
+        margin-top: 70%;
+    }
+    .slider-text p {
+		width: 290px;
+}
+    .slider-text h2,
+    .slider-text h3 {
+        font-size: 24px;
+    }
+    .section-title h2, .download-inner h2  {
+        font-size: 24px;
+    }
+	.author-name-image h4 , .author-name-image a{
+		font-size: 16px;
+	}
+    .section-title p , .download-inner p {
+        font-size: 16px;
+    }
+    .about-text p {
+        width: 290px;
+		text-align: justify;
+    }
+    .button-group a {
+		margin-right: -2px;
+	}
+    .button-group a {
+		margin-right: 0px;
+	}
+	.single-feature h3 , .price-box .price-rate , .compa-inner .compat-content h3{
+		font-size: 22px;
+	}
+	.copyright-text p{
+		font-size: 14px;
+	}
+	.about-card-content h4{
+		font-size: 22px;
+	}
+	.button-group a p , .button-group a span{
+		font-size: 12px;
+	}
+	.button-group a i {
+		padding-right: 6px;
+		left: 3px;
+		font-size: 20px;
+	}
+	.btn{
+		padding: 10px 25px;
+	}
+}

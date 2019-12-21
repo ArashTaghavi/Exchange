@@ -48,6 +48,11 @@ import App from './App.vue';
 
 window.Vue = Vue;
 
+router.beforeEach((to, from, next) => {
+    document.title = ` پنل کاربری - ${to.name}`
+    next()
+});
+
 window.app = new Vue({
     el: '#app',
     router,

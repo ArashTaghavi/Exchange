@@ -1,0 +1,22 @@
+#price .panel {
+    background: linear-gradient(to right, #0987f4, #003073);
+    border-radius: 10px;
+}
+
+#price .panel-title img {
+    width: 40px;
+    margin: 5px;
+}
+
+#price .panel-title h4 {
+    color: #fff !important;
+    display: inline-block;
+}
+#price .panel-body .row .col-sm-6 {
+    color: #fff !important;
+    display: inline-block;
+}
+#price .panel-body a {
+    position: relative;
+    top: 30px;
+}

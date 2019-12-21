@@ -65,6 +65,9 @@ export default {
             $('html, body').animate({
                 scrollTop: ($(`${selector}`).offset().top)
             }, 500);
+        },
+        emptyForm(){
+            this.form={}
         }
     },
 

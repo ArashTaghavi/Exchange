@@ -1,0 +1,93 @@
+/* rtl by ghaffari0098 */
+.team .team-col .member-name h4{
+  font-family: IRANSans;
+}
+#loading{
+  direction: ltr;
+}
+.slider-background{
+  overflow-y: hidden;
+}
+.banner2-image img{
+  margin-top: 10%;
+}
+.nav.navbar-nav{
+  margin-left: 80px;
+  margin-right: 0;
+}
+.navbar-nav li a{
+  padding-bottom: 0;
+}
+.banner-image{
+  padding-left: 0;
+  padding-right: 30px;
+  left: 0;
+  right: auto;
+}
+.slider p{
+  padding-left: 28%;
+  padding-right: 0;
+}
+.slider-text{
+  text-align: right;
+  margin-top: 65%;
+}
+.slider-content .tp45{
+  margin-top: 45% !important;
+}
+.cd-words-wrapper{
+  line-height: 2;
+}
+.cd-headline.clip .cd-words-wrapper::after {
+    right: auto;
+    left: : 0;
+    width: 2px;
+}
+.discription ul li i {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: ;
+}
+.price-box ul li{
+  display: block;
+}
+.faq-text p{
+  padding-right: 20px;
+  padding-left: 0;
+  border-right: 2px solid #003073;
+  border-left: 0;
+}
+.newsletter-form__input{
+    padding-left: 165px;
+    padding-right: 25px;
+}
+.newsletter-form__submit{
+  left: 0;
+  right: auto;
+}
+#scroll-to-top{
+  left: 25px;
+  right: auto;
+}
+#form-messages {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    color: #fff;
+    text-align: center;
+}
+.success{
+        background: #81C784;
+}
+.error{
+     background: #ef5350;
+}
+@media only screen and (max-width: 520px){
+.slider h1 {
+    font-size: 28px;
+    line-height: 1.7;
+}
+.slider p {
+    padding-right: 0;
+    padding-left: 0;
+}
+}

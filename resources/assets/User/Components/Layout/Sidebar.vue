@@ -44,7 +44,7 @@
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
-                    <router-link to="/orders">
+                    <router-link to="/buy-orders">
                         <i class="zmdi zmdi-collection-text"></i>
                         سفارشات
                     </router-link>
@@ -60,6 +60,12 @@
                         <i class="zmdi zmdi-lock"></i>
                         تغییر کلمه عبور
                     </router-link>
+                </li>
+                <li class="@@widgetactive">
+                    <a href="/logout">
+                        <i class="zmdi zmdi-arrow-out"></i>
+                        خروج
+                    </a>
                 </li>
             </ul>
         </div>

@@ -9,3 +9,7 @@
 th, td {
     text-align: center;
 }
+
+option {
+    color: #000 !important;
+}
