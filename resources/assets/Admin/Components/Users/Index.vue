@@ -1,37 +1,30 @@
 <template>
-    <card title="لیست سفارشات خرید">
-        <add-btn to="buy-orders"/>
-        <div class="row" v-if="buy_orders.length>0">
+    <card :title="`${$route.name}`">
+        <div class="row" v-if="users.length>0">
             <table class="table table-hover mb-0 table-responsive">
                 <thead>
                 <tr>
-                    <th>مبلغ پرداختی</th>
-                    <th>نوع ارز</th>
-                    <th>وضعیت</th>
+                    <th>نام</th>
+                    <th>ایمیل</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="buy_order in buy_orders">
-                    <td>{{buy_order.amount}}</td>
-                    <td>{{buy_order.currency.title}} ({{buy_order.currency.symbol}})</td>
-                    <td v-html=status(buy_order.status)></td>
+                <tr v-for="user in users">
+                    <td>{{user.first_name}} {{user.last_name}}</td>
+                    <td>{{user.email}}</td>
                     <td>
-                        <div v-if="buy_order.status !==3">
-                            <edit-btn :to="`buy-orders/${buy_order.id}`"/>
-                            <delete-btn :id=buy_order.id></delete-btn>
-                        </div>
-                        <router-link v-else :to="`buy-orders/${buy_order.id}/detail`">
-                            <button class="btn btn-sm btn-outline-primary btn--icon-text m-1">
-                                <i class="zmdi zmdi-file-text"></i>
-                                جزییات
-                            </button>
-                        </router-link>
-
+                        <detail-btn :to="`users/${user.id}`"></detail-btn>
+                        <icon-btn type="danger" icon="stop" v-if="user.is_block==0" @click="handleBlock(user.id)">انسداد
+                        </icon-btn>
+                        <icon-btn type="success" icon="pause" v-if="user.is_block==1" @click="handleBlock(user.id)">رفع
+                            انسداد
+                        </icon-btn>
                     </td>
                 </tr>
                 </tbody>
             </table>
+
         </div>
         <not-found v-else/>
     </card>
@@ -42,25 +35,35 @@
     export default {
         data() {
             return {
-                buy_orders: []
+                users: []
             }
         },
         created() {
-            this.getBuyOrders();
+            this.getUsers();
         },
         methods: {
             handleDelete(id) {
                 axios.delete(`/buy-orders/${id}`)
                     .then(response => {
                         this.successNotify(response);
-                        this.getBuyOrders();
+                        this.getUsers();
                     })
                     .catch(error => this.errorNotify(error));
             },
-            getBuyOrders() {
-                axios.get('/buy-orders')
-                    .then(response => this.buy_orders = response.data)
+            getUsers() {
+                axios.get('/users')
+                    .then(response => this.users = response.data)
                     .catch(error => this.errorNotify(error));
+            },
+            handleBlock(id) {
+                this.deleteConfirm()
+                    .then(confirm => {
+                        if (confirm) {
+                            axios.get(`/users/block/${id}`)
+                                .then(response => this.getUsers())
+                                .catch(error => this.errorNotify(error.response.data.message));
+                        }
+                    });
             },
             status(status) {
                 switch (status) {

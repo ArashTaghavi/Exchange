@@ -14,6 +14,8 @@ class User extends Authenticatable
     use Notifiable;
     use HasImage;
     public $image_path = 'user/profile';
+    const USER = 0;
+    const ADMIN = 1;
     /**
      * The attributes that are mass assignable.
      *

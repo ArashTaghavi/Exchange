@@ -1,7 +1,6 @@
 <?php
-Route::middleware(['web', 'auth:web'])->group(function () {
+Route::middleware(['web', 'auth:web','IsUser'])->group(function () {
     Route::get('/user-dashboard', 'DashboardController@index');
-    Route::get('/logout', 'ProfileController@logout');
     Route::get('/user-dashboard/{all}', 'DashboardController@index')->where(['all' => '.*']);
 
     Route::prefix('api/user')->name('user.')->group(function () {

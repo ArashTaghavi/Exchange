@@ -333,7 +333,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="discription">
+              {{--  <div class="discription">
                     <ul>
                         <li><i class="fa fa-angle-double-left"></i>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم است.
                         </li>
@@ -354,7 +354,7 @@
                         </li>
 
                     </ul>
-                </div>
+                </div>--}}
                 <div class="button-group store-buttons">
                     <a href="/site-assets/#" class="btn btn-style-2 btn-bordered-grad">
                         <i class="fa fa-android"></i>

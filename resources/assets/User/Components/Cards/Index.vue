@@ -2,7 +2,7 @@
     <card title="کارت ها">
         <add-btn to="cards"/>
         <div class="row" v-if="cards.length>0">
-            <table class="table table-hover mb-0">
+            <table class="table table-hover mb-0 table-responsive">
                 <thead>
                 <tr>
                     <th>نام بانک</th>

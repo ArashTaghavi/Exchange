@@ -1,5 +1,5 @@
 <template>
-    <button :class="`btn btn-labeled mb-2 actions__item fa btn-${type} btn-xs upload-btn`" type="button"
+    <button :class="`btn btn-labeled mb-2  fa btn-${type} btn-xs upload-btn`" type="button"
             rel="tooltip" :data-title="title">
         <span class="btn-label">
             <i :class="`fa fa-${icon}`"></i>

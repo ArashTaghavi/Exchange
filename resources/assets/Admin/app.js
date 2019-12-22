@@ -24,7 +24,7 @@ Vue.use(VueRouter);
 let router = new VueRouter({
     routes,
     mode: 'history',
-    base: 'user-dashboard/'
+    base: 'admin-dashboard/'
 });
 Vue.router = router;
 
@@ -41,6 +41,9 @@ Vue.component('not-found', () => import('./../common/Components/NotFound'));
 Vue.component('edit-btn', () => import('./../common/Components/EditButton'));
 Vue.component('delete-btn', () => import('./../common/Components/DeleteButton'));
 Vue.component('add-btn', () => import('./../common/Components/AddButton'));
+Vue.component('detail-btn', () => import('./../common/Components/DetailButton'));
+Vue.component('icon-btn', () => import('./../common/Components/IconButton'));
+
 
 //  ================== Run Application  ==================
 import App from './App.vue';
@@ -48,7 +51,7 @@ import App from './App.vue';
 window.Vue = Vue;
 
 router.beforeEach((to, from, next) => {
-    document.title = ` پنل کاربری - ${to.name}`
+    document.title = ` پنل ادمین - ${to.name}`;
     next()
 });
 

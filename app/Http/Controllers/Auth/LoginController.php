@@ -70,7 +70,10 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        return redirect('/user-dashboard');
+        if ($user->is_admin == User::ADMIN)
+            return redirect('/admin-dashboard');
+        if ($user->is_admin !== User::ADMIN)
+            return redirect('/user-dashboard');
     }
 
 }

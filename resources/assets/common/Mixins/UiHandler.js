@@ -18,7 +18,7 @@ export default {
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
                         cancelButtonText: 'خیر',
-                        confirmButtonText: 'بله، حذف شود!',
+                        confirmButtonText: 'بله',
                         icon: 'warning',
                     }).then(confirm => {
                         if (confirm.value) {

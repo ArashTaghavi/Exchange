@@ -2,7 +2,7 @@
     <card title="مدارک" sub_title="لطفا برای تسریع روند تایید مدارک، مدارک خود را طبق فرمت خواسته شده بارگذاری نمایید.">
         <add-btn to="documents"/>
         <div class="row" v-if="documents.length>0">
-            <table class="table table-hover mb-0">
+            <table class="table table-hover mb-0 table-responsive">
                 <thead>
                 <tr>
                     <th>عنوان</th>

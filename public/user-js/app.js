@@ -25905,90 +25905,94 @@ var render = function() {
       _vm._v(" "),
       _vm.buy_orders.length > 0
         ? _c("div", { staticClass: "row" }, [
-            _c("table", { staticClass: "table table-hover mb-0" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("مبلغ پرداختی")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("نوع ارز")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("وضعیت")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("عملیات")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.buy_orders, function(buy_order) {
-                  return _c("tr", [
-                    _c("td", [_vm._v(_vm._s(buy_order.amount))]),
+            _c(
+              "table",
+              { staticClass: "table table-hover mb-0 table-responsive" },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", [_vm._v("مبلغ پرداختی")]),
                     _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        _vm._s(buy_order.currency.title) +
-                          " (" +
-                          _vm._s(buy_order.currency.symbol) +
-                          ")"
-                      )
-                    ]),
+                    _c("th", [_vm._v("نوع ارز")]),
                     _vm._v(" "),
-                    _c("td", {
-                      domProps: {
-                        innerHTML: _vm._s(_vm.status(buy_order.status))
-                      }
-                    }),
+                    _c("th", [_vm._v("وضعیت")]),
                     _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        buy_order.status !== 3
-                          ? _c(
-                              "div",
-                              [
-                                _c("edit-btn", {
-                                  attrs: { to: "buy-orders/" + buy_order.id }
-                                }),
-                                _vm._v(" "),
-                                _c("delete-btn", {
-                                  attrs: { id: buy_order.id }
-                                })
-                              ],
-                              1
-                            )
-                          : _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: "buy-orders/" + buy_order.id + "/detail"
-                                }
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-sm btn-outline-primary btn--icon-text m-1"
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "zmdi zmdi-file-text"
-                                    }),
-                                    _vm._v(
-                                      "\n                            جزییات\n                        "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                      ],
-                      1
-                    )
+                    _c("th", [_vm._v("عملیات")])
                   ])
-                }),
-                0
-              )
-            ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.buy_orders, function(buy_order) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(buy_order.amount))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          _vm._s(buy_order.currency.title) +
+                            " (" +
+                            _vm._s(buy_order.currency.symbol) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          innerHTML: _vm._s(_vm.status(buy_order.status))
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          buy_order.status !== 3
+                            ? _c(
+                                "div",
+                                [
+                                  _c("edit-btn", {
+                                    attrs: { to: "buy-orders/" + buy_order.id }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("delete-btn", {
+                                    attrs: { id: buy_order.id }
+                                  })
+                                ],
+                                1
+                              )
+                            : _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: "buy-orders/" + buy_order.id + "/detail"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-sm btn-outline-primary btn--icon-text m-1"
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "zmdi zmdi-file-text"
+                                      }),
+                                      _vm._v(
+                                        "\n                            جزییات\n                        "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                        ],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
           ])
         : _c("not-found")
     ],
@@ -26367,45 +26371,49 @@ var render = function() {
       _vm._v(" "),
       _vm.cards.length > 0
         ? _c("div", { staticClass: "row" }, [
-            _c("table", { staticClass: "table table-hover mb-0" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("نام بانک")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("شماره کارت")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("وضعیت")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.cards, function(card) {
-                  return _c("tr", [
-                    _c("td", [_vm._v(_vm._s(card.bank_name))]),
+            _c(
+              "table",
+              { staticClass: "table table-hover mb-0 table-responsive" },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", [_vm._v("نام بانک")]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(card.card_no))]),
+                    _c("th", [_vm._v("شماره کارت")]),
                     _vm._v(" "),
-                    _c("td", {
-                      domProps: {
-                        innerHTML: _vm._s(_vm.approved(card.approved))
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c("edit-btn", { attrs: { to: "cards/" + card.id } }),
-                        _vm._v(" "),
-                        _c("delete-btn", { attrs: { id: card.id } })
-                      ],
-                      1
-                    )
+                    _c("th", [_vm._v("وضعیت")])
                   ])
-                }),
-                0
-              )
-            ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.cards, function(card) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(card.bank_name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(card.card_no))]),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          innerHTML: _vm._s(_vm.approved(card.approved))
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          _c("edit-btn", { attrs: { to: "cards/" + card.id } }),
+                          _vm._v(" "),
+                          _c("delete-btn", { attrs: { id: card.id } })
+                        ],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
           ])
         : _c("not-found")
     ],
@@ -26661,45 +26669,49 @@ var render = function() {
       _vm._v(" "),
       _vm.documents.length > 0
         ? _c("div", { staticClass: "row" }, [
-            _c("table", { staticClass: "table table-hover mb-0" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("عنوان")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("وضعیت")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("عملیات")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.documents, function(document) {
-                  return _c("tr", [
-                    _c("td", [_vm._v(_vm._s(document.title))]),
+            _c(
+              "table",
+              { staticClass: "table table-hover mb-0 table-responsive" },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", [_vm._v("عنوان")]),
                     _vm._v(" "),
-                    _c("td", {
-                      domProps: {
-                        innerHTML: _vm._s(_vm.approved(document.approved))
-                      }
-                    }),
+                    _c("th", [_vm._v("وضعیت")]),
                     _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c("edit-btn", {
-                          attrs: { to: "documents/" + document.id }
-                        }),
-                        _vm._v(" "),
-                        _c("delete-btn", { attrs: { id: document.id } })
-                      ],
-                      1
-                    )
+                    _c("th", [_vm._v("عملیات")])
                   ])
-                }),
-                0
-              )
-            ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.documents, function(document) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(document.title))]),
+                      _vm._v(" "),
+                      _c("td", {
+                        domProps: {
+                          innerHTML: _vm._s(_vm.approved(document.approved))
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          _c("edit-btn", {
+                            attrs: { to: "documents/" + document.id }
+                          }),
+                          _vm._v(" "),
+                          _c("delete-btn", { attrs: { id: document.id } })
+                        ],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
           ])
         : _c("not-found")
     ],
@@ -44668,19 +44680,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('submit', function () {
   return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./../common/Components/SubmitButton */ "./resources/assets/common/Components/SubmitButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('card', function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./../common/Components/Card */ "./resources/assets/common/Components/Card.vue"));
+  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./../common/Components/Card */ "./resources/assets/common/Components/Card.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('cropper-portlet', function () {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./../common/Components/CropperPortlet */ "./resources/assets/common/Components/CropperPortlet.vue"));
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./../common/Components/CropperPortlet */ "./resources/assets/common/Components/CropperPortlet.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('portlet-button', function () {
   return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletButton */ "./resources/assets/common/Components/PortletButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('portlet-file-input', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletFileInput */ "./resources/assets/common/Components/PortletFileInput.vue"));
-});
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('cropper-portlet', function () {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./../common/Components/CropperPortlet */ "./resources/assets/common/Components/CropperPortlet.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletFileInput */ "./resources/assets/common/Components/PortletFileInput.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('cropper-tools', function () {
   return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./../common/Components/CropperTools */ "./resources/assets/common/Components/CropperTools.vue"));
@@ -44689,7 +44698,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ui-button', function () {
   return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./../common/Components/UiButton */ "./resources/assets/common/Components/UiButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('loading', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./../common/Components/Loading */ "./resources/assets/common/Components/Loading.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../common/Components/Loading */ "./resources/assets/common/Components/Loading.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('not-found', function () {
   return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./../common/Components/NotFound */ "./resources/assets/common/Components/NotFound.vue"));
@@ -44701,7 +44710,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('delete-btn', function () {
   return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./../common/Components/DeleteButton */ "./resources/assets/common/Components/DeleteButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('add-btn', function () {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./../common/Components/AddButton */ "./resources/assets/common/Components/AddButton.vue"));
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./../common/Components/AddButton */ "./resources/assets/common/Components/AddButton.vue"));
 }); //  ================== Run Application  ==================
 
 
@@ -44903,7 +44912,7 @@ __webpack_require__.r(__webpack_exports__);
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           cancelButtonText: 'خیر',
-          confirmButtonText: 'بله، حذف شود!',
+          confirmButtonText: 'بله',
           icon: 'warning'
         }).then(function (confirm) {
           if (confirm.value) {
