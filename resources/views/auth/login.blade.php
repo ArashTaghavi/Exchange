@@ -93,28 +93,15 @@
         </div>
 
         <div class="login__block__body">
-            <div class="form-group">
-                <input type="text" class="form-control text-center" placeholder="نام">
-            </div>
-
-            <div class="form-group form-group--centered">
-                <input type="text" class="form-control text-center" placeholder="آدرس ایمیل">
-            </div>
-
-            <div class="form-group form-group--centered">
-                <input type="password" class="form-control text-center" placeholder="رمز عبور">
-            </div>
-
-            <div class="form-group">
-                <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Accept the license agreement</span>
-                </label>
-            </div>
-
-            <a href="/dashboard-assets/index.html" class="btn btn--icon login__block__btn"><i
-                        class="zmdi zmdi-plus"></i></a>
+            <form action="{{route('doRegister')}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <input type="number" maxlength="11" class="form-control text-center" name="mobile" placeholder="موبایل">
+                </div>
+                <button class="btn btn--icon login__block__btn">
+                    <i class="zmdi zmdi-plus"></i>
+                </button>
+            </form>
         </div>
     </div>
 
@@ -122,7 +109,7 @@
     <div class="login__block" id="l-forget-password">
         <div class="login__block__header">
             <i class="zmdi zmdi-account-circle"></i>
-            Forgot Password?
+            فراموشی رمز عبور
 
             <div class="actions actions--inverse login__block__actions">
                 <div class="dropdown">

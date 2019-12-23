@@ -34,6 +34,11 @@
     <!-- Responsive css -->
     <link href="/site-assets/css/responsive.css" rel="stylesheet">
     <link href="/site-assets/css/custom.css" rel="stylesheet">
+    <style>
+        #questions a:hover {
+            color: initial !important;
+        }
+    </style>
 </head>
 
 <body id="home">
@@ -72,12 +77,14 @@
                                     <li><a class="smooth_scroll" href="#price"> قیمت ارز ها</a></li>
                                     <li><a class="smooth_scroll" href="#about-us"> درباره ما</a></li>
                                     <li><a class="smooth_scroll" href="#feature">ویژگی ها</a></li>
+                                    <li><a class="smooth_scroll" href="#questions">سوالات متداول</a></li>
+                                    <li><a  href="/blog">بلاگ</a></li>
                                     <li><a class="smooth_scroll" href="#contact">تماس</a></li>
                                     @if(!Auth::check())
-                                        <li><a href="/login">ورود</a></li>
+                                        <li><a href="/login">ورود / ثبت نام</a></li>
                                     @else
                                         <li>
-                                            <a href="/user-dashboard">پنل کاربری</a>
+                                            <a href={{$panel_address}}>پنل کاربری</a>
                                         </li>
                                     @endif
                                 </ul>
@@ -219,14 +226,14 @@
                     </div>
                     <div class="panel-body text-center">
                         <div class="row">
-                            <div class="col-sm-6">قیمت خرید</div>
+                            <div class="col-sm-6">خرید از سایت</div>
                             <div class="col-sm-6">
                                 92,344,657
                                 تومان
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">قیمت فروش</div>
+                            <div class="col-sm-6">فروش به سایت</div>
                             <div class="col-sm-6">
                                 93,554,651
                                 تومان
@@ -248,14 +255,14 @@
                     </div>
                     <div class="panel-body text-center">
                         <div class="row">
-                            <div class="col-sm-6">قیمت خرید</div>
+                            <div class="col-sm-6">خرید از سایت</div>
                             <div class="col-sm-6">
                                 92,344,657
                                 تومان
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">قیمت فروش</div>
+                            <div class="col-sm-6">فروش به سایت</div>
                             <div class="col-sm-6">
                                 93,554,651
                                 تومان
@@ -277,14 +284,14 @@
                     </div>
                     <div class="panel-body text-center">
                         <div class="row">
-                            <div class="col-sm-6">قیمت خرید</div>
+                            <div class="col-sm-6">خرید از سایت</div>
                             <div class="col-sm-6">
                                 92,344,657
                                 تومان
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">قیمت فروش</div>
+                            <div class="col-sm-6">فروش به سایت</div>
                             <div class="col-sm-6">
                                 93,554,651
                                 تومان
@@ -300,9 +307,39 @@
             </div>
 
         </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-6 col-md-3 col-md-offset-2">
+                <div class="form-group">
+                    <select name="" id="" class="form-control">
+                        <option value="">بیت کوین</option>
+                        <option value="">اتریوم</option>
+                        <option value="">تتر</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="form-group">
+                    <select name="" id="" class="form-control">
+                        <option value="">بیت کوین</option>
+                        <option value="">اتریوم</option>
+                        <option value="">تتر</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-2">
+                <div class="form-group">
+                    <button class="btn btn-xs btn-warning"
+                            style="border-radius: 3px;background: linear-gradient(to right, #0987f4, #003073)">تبدیل
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 <!-- Price -->
+
 
 <!-- About area Start -->
 <section id="about-us" class="about section-big">
@@ -333,28 +370,28 @@
                         </p>
                     </div>
                 </div>
-              {{--  <div class="discription">
-                    <ul>
-                        <li><i class="fa fa-angle-double-left"></i>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم است.
-                        </li>
-                        <li><i class="fa fa-angle-double-left"></i>چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                            سطرآنچنان که لازم است
-                        </li>
-                        <li><i class="fa fa-angle-double-left"></i>برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع
-                            با هدف بهبود ابزارهای کاربردی می باشد.
-                        </li>
-                        <li><i class="fa fa-angle-double-left"></i>تابهای زیادی در شصت و سه درصد گذشته، حال و آینده
-                            شناخت فراوان جامعه و متخصصان را می طلبد.
-                        </li>
-                        <li><i class="fa fa-angle-double-left"></i>نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                            الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                        </li>
-                        <li><i class="fa fa-angle-double-left"></i> می توان امید داشت که تمام و دشواری موجود در ارائه
-                            راهکارها و شرایط سخت تایپ به پایان رسد .
-                        </li>
+                {{--  <div class="discription">
+                      <ul>
+                          <li><i class="fa fa-angle-double-left"></i>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم است.
+                          </li>
+                          <li><i class="fa fa-angle-double-left"></i>چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                              سطرآنچنان که لازم است
+                          </li>
+                          <li><i class="fa fa-angle-double-left"></i>برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع
+                              با هدف بهبود ابزارهای کاربردی می باشد.
+                          </li>
+                          <li><i class="fa fa-angle-double-left"></i>تابهای زیادی در شصت و سه درصد گذشته، حال و آینده
+                              شناخت فراوان جامعه و متخصصان را می طلبد.
+                          </li>
+                          <li><i class="fa fa-angle-double-left"></i>نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
+                              الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                          </li>
+                          <li><i class="fa fa-angle-double-left"></i> می توان امید داشت که تمام و دشواری موجود در ارائه
+                              راهکارها و شرایط سخت تایپ به پایان رسد .
+                          </li>
 
-                    </ul>
-                </div>--}}
+                      </ul>
+                  </div>--}}
                 <div class="button-group store-buttons">
                     <a href="/site-assets/#" class="btn btn-style-2 btn-bordered-grad">
                         <i class="fa fa-android"></i>
@@ -467,8 +504,84 @@
 </section>
 <!-- feature area ends -->
 
-<!-- screenshot area ends -->
+<!-- Questions -->
+<section id="questions" style="background: #f5f9fc" class="feature-area section-big">
+    <div class="container">
+        <div class="section-title">
+            <h2>سوالات متداول</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <span class="glyphicon glyphicon glyphicon-minus">
+                            </span>آیا میتوانیم در اندروید استفاده کنیم؟</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت
+                                    تایپ به پایان رسد .</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    <span class="glyphicon glyphicon glyphicon-plus">
+                            </span>چگونه برنامه را دریافت کنیم؟</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    <span class="glyphicon glyphicon-plus">
+                            </span>آیا پشتیبانی آنلاین وجود دارد؟</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    آیا برای استفاده نیاز به خرید لایسنس است؟
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Questions -->
 
 <!-- Contact  area Start -->
 <section id="contact" class="our-contact section-big">
@@ -552,7 +665,6 @@
         </div>
     </div>
 </section>
-
 <!-- Contact  area end -->
 
 <!-- copyright area starts -->
@@ -592,6 +704,17 @@
 <script src="/site-assets/js/swiper.min.js"></script>
 <!-- main js -->
 <script src="/site-assets/js/custom.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#questions a').click(function () {
+            var tag = $('#questions a span');
+            tag.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+            $(this).find('span').toggleClass('glyphicon-minus').toggleClass('glyphicon-plus');
+
+        });
+    });
+</script>
 </body>
 
 </html>

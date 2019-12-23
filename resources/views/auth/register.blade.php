@@ -1,77 +1,112 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <!-- Vendor styles -->
+    <link rel="stylesheet"
+          href="/dashboard-assets/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendors/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendors/sweetalert/dist/sweetalert.css">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <!-- App styles -->
+    <link rel="stylesheet" href="/dashboard-assets/css/app.min.css">
+    <link rel="stylesheet" href="/dashboard-assets/css/custom.css">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <script src="/dashboard-assets/vendors/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        h2, p {
+            font-family: IRANSans !important;
+        }
+    </style>
+</head>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+<body data-sa-theme="2">
+@if($errors->any())
+    <script type="text/javascript">
+        swal({
+            title: 'پیام سیستم',
+            text: "{{ $errors->first()  }}",
+            type: 'error',
+            showConfirmButton: true,
+            timer: 5000
+        });
+    </script>
+@endif
+<div class="login">
+    <div class="login__block" id="l-register" style="display: block">
+        <div class="login__block__body">
+            <form action="{{route('doRegister')}}" method="POST">
+                @csrf
+                @if(!session()->get('verify_registration'))
+                    <div class="form-group">
+                        <input type="number" maxlength="11" class="form-control text-center" name="mobile"
+                               placeholder="موبایل">
+                    </div>
+                    <button class="btn btn--icon login__block__btn">
+                        <i class="zmdi zmdi-plus"></i>
+                    </button>
+                @else
+                    <div class="form-group">
+                        <input type="verify" maxlength="11" class="form-control text-center" name="verify"
+                               placeholder="کد تایید">
+                    </div>
+                    <button class="btn btn--icon login__block__btn">
+                        <i class="zmdi zmdi-plus"></i>
+                    </button>
+                @endif
+            </form>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 </div>
-@endsection
+
+<!-- Older IE warning message -->
+<!--[if IE]>
+<div class="ie-warning">
+    <h1>?????!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade to any of the following web browsers to
+        access this website.</p>
+
+    <div class="ie-warning__downloads">
+        <a href="/dashboard-assets/http://www.google.com/chrome">
+            <img src="/dashboard-assets/img/browsers/chrome.png" alt="">
+        </a>
+
+        <a href="/dashboard-assets/https://www.mozilla.org/en-US/firefox/new">
+            <img src="/dashboard-assets/img/browsers/firefox.png" alt="">
+        </a>
+
+        <a href="/dashboard-assets/http://www.opera.com/default.htm">
+            <img src="/dashboard-assets/img/browsers/opera.png" alt="">
+        </a>
+
+        <a href="/dashboard-assets/https://support.apple.com/downloads/safari">
+            <img src="/dashboard-assets/img/browsers/safari.png" alt="">
+        </a>
+
+        <a href="/dashboard-assets/https://www.microsoft.com/en-us/windows/microsoft-edge">
+            <img src="/dashboard-assets/img/browsers/edge.png" alt="">
+        </a>
+
+        <a href="/dashboard-assets/http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+            <img src="/dashboard-assets/img/browsers/ie.png" alt="">
+        </a>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->
+<!-- Javascript -->
+<!-- Vendors -->
+<script src="/dashboard-assets/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/dashboard-assets/vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
+<script src="/dashboard-assets/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<!-- App functions and actions -->
+<script src="/dashboard-assets/js/app.min.js"></script>
+</body>
+</html>
