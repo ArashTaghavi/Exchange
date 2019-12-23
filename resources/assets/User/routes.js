@@ -25,6 +25,13 @@ import BuyOrderEdit from './Components/BuyOrders/Edit';
 import BuyOrderDetail from './Components/BuyOrders/Detail';
 // =================== Buy Orders ===================
 
+// =================== Sell Orders ===================
+import SellOrders from './Components/SellOrders/Index';
+import SellOrderCreate from './Components/SellOrders/Create';
+import SellOrderEdit from './Components/SellOrders/Edit';
+import SellOrderDetail from './Components/SellOrders/Detail';
+// =================== Sell Orders ===================
+
 export default [
     {path: '/', name: 'داشبورد', component: Dashboard},
     {path: '/profile', name: 'پروفایل', component: Profile},
@@ -48,6 +55,13 @@ export default [
     {path: '/buy-orders/:id/edit', name: 'ویرایش سفارش خرید', component: BuyOrderEdit},
     {path: '/buy-orders/:id/detail', name: 'جزییات سفارش خرید', component: BuyOrderDetail},
     // =================== Buy Orders ===================
+
+    // =================== Sell Orders ===================
+    {path: '/sell-orders', name: 'لیست سفارشات فروش', component: SellOrders},
+    {path: '/sell-orders/create', name: 'ثبت سفارش فروش', component: SellOrderCreate},
+    {path: '/sell-orders/:id/edit', name: 'ویرایش سفارش فروش', component: SellOrderEdit},
+    {path: '/sell-orders/:id/detail', name: 'جزییات سفارش فروش', component: SellOrderDetail},
+    // =================== Sell Orders ===================
 
     {path: '/financial', name: 'گزارشات مالی', component: Financial},
 

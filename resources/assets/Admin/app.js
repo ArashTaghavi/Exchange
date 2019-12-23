@@ -12,8 +12,9 @@ Vue.mixin(NotifyHandler);
 
 // ================== Packages  ==================
 import moment from 'moment-jalali';
+moment.locale('fa');
 import routes from './routes';
-
+window.moment = moment;
 
 // ================== Use  ==================
 Vue.use(axios);
@@ -43,6 +44,7 @@ Vue.component('delete-btn', () => import('./../common/Components/DeleteButton'))
 Vue.component('add-btn', () => import('./../common/Components/AddButton'));
 Vue.component('detail-btn', () => import('./../common/Components/DetailButton'));
 Vue.component('icon-btn', () => import('./../common/Components/IconButton'));
+Vue.component('link-btn', () => import('./../common/Components/LinkButton'));
 
 
 //  ================== Run Application  ==================

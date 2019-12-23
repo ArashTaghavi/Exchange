@@ -171,8 +171,10 @@ return [
         'card_no' => 'شماره کارت',
         'sheba_no' => 'شماره شبا',
         'account_no' => 'شماره حساب',
-        'amount'=>'مبلغ',
-        'currency_id'=>'نوع ارز',
+        'amount' => 'مبلغ',
+        'currency_id' => 'نوع ارز',
+        'symbol' => 'نماد',
+        'wage' => 'کارمزد'
     ],
 
 ];

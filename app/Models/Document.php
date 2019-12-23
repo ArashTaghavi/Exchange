@@ -13,6 +13,10 @@ class Document extends Model
 
     public $image_path = 'user/document';
 
+    const REJECT = 0;
+    const CONFIRM = 1;
+    const WAITING = 2;
+
 
     public function user()
     {

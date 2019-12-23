@@ -44,6 +44,17 @@ Route::middleware(['web', 'auth:web','IsUser'])->group(function () {
         });
         // ================================ Buy Orders ================================
 
+        // ================================ Sell Orders ================================
+        Route::prefix('sell-orders')->name('sell-orders.')->group(function () {
+            Route::get('/', 'SellOrderController@index')->name('index');
+            Route::post('/', 'SellOrderController@store')->name('store');
+            Route::get('/{id}', 'SellOrderController@getByID')->name('get-by-id');
+            Route::put('/{id}', 'SellOrderController@update')->name('update');
+            Route::delete('/{id}', 'SellOrderController@destroy')->name('destroy');
+            Route::get('/detail/{id}', 'SellOrderController@detail')->name('detail');
+        });
+        // ================================ Sell Orders ================================
+
         // ================================ Currencies ================================
         Route::prefix('helper')->name('helper.')->group(function () {
             Route::get('/currencies', 'HelperController@currency')->name('currency');

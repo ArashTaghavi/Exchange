@@ -32,27 +32,15 @@
                 </li>
 
                 <li class="@@widgetactive">
-                    <router-link to="/documents">
+                    <router-link to="/users">
                         <i class="zmdi zmdi-file"></i>
-                        مدارک
+                        کاربران
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
-                    <router-link to="/cards">
+                    <router-link to="/currencies">
                         <i class="zmdi zmdi-card"></i>
-                        مدیریت کارت ها
-                    </router-link>
-                </li>
-                <li class="@@widgetactive">
-                    <router-link to="/buy-orders">
-                        <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات
-                    </router-link>
-                </li>
-                <li class="@@widgetactive">
-                    <router-link to="/financial">
-                        <i class="zmdi zmdi-trending-up"></i>
-                        گزارشات مالی
+                        مدیریت ارز ها
                     </router-link>
                 </li>
                 <li class="@@widgetactive">

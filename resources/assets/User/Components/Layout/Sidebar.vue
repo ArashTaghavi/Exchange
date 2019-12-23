@@ -46,7 +46,13 @@
                 <li class="@@widgetactive">
                     <router-link to="/buy-orders">
                         <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات
+                        سفارشات خرید
+                    </router-link>
+                </li>
+                <li class="@@widgetactive">
+                    <router-link to="/sell-orders">
+                        <i class="zmdi zmdi-collection-text"></i>
+                        سفارشات فروش
                     </router-link>
                 </li>
                 <li class="@@widgetactive">

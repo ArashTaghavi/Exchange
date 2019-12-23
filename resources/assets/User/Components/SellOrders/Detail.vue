@@ -1,6 +1,6 @@
 <template>
-    <card title="جزییات سفارش خرید">
-        <div class="row" v-if="Object.entries(buy_order).length>0">
+    <card title="جزییات سفارش فروش">
+        <div class="row" v-if="Object.entries(sell_order).length>0">
 
         </div>
         <div class="alert alert-warning text-center" v-else>
@@ -13,12 +13,12 @@
     export default {
         data() {
             return {
-                buy_order: {}
+                sell_order: {}
             }
         },
         created() {
-            axios.get(`/buy-orders/detail/${this.$route.params.id}`)
-                .then(response => this.buy_order = response.data)
+            axios.get(`/sell-orders/detail/${this.$route.params.id}`)
+                .then(response => this.sell_order = response.data)
                 .catch(error => this.errorNotify(error));
         },
     }
