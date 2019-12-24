@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -41,34 +42,39 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param array $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param Request $request
+     * @return mixed
      */
     protected function validator(Request $request)
     {
-        return $request->validate([
-            'mobile' => ['required', 'max:11', 'unique:users'],
-        ]);
+        return $request->validate(['mobile' => ['required', 'min:11', 'unique:users']]);
 
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param array $data
-     * @return \App\User
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
      */
     protected function create(Request $request)
     {
         $this->validator($request);
-        User::create(['mobile' => $request->mobile]);
-        session()->push('verify_registration', $request->mobile);
+        $random = random_int(1000, 5000);
+        User::create(['mobile' => $request->mobile, 'code' => $random]);
+        session()->push('verify_registration', $random);
+
         return redirect('/register');
     }
 
-    public function verify(){
+    public function verify(Request $request)
+    {
+        $request->validate(['verify' => ['required']], ['verify.required' => 'ورود کد تایید الزامی است.']);
+        $user = User::where('code', $request->verify)->first();
+        if (!empty($user)) {
+            Auth::loginUsingId($user->id);
+            return redirect('/user-dashboard');
+            session()->forget('verify_registration');
+        }
 
     }
 }

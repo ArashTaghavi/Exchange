@@ -23,6 +23,9 @@
                     <icon-btn type="success" style="position:absolute;left:5px;top:5px" v-if="sell_order.status===2"
                               icon="check" @click="handleStatus(sell_order.id,1)">تایید
                     </icon-btn>
+                    <icon-btn type="danger" style="position:absolute;left:70px;top:5px" v-if="sell_order.status===2"
+                              icon="close" @click="handleStatus(sell_order.id,0)">رد
+                    </icon-btn>
                     <icon-btn type="info" style="position:absolute;left:5px;top:5px" v-if="sell_order.status===1"
                               icon="check" @click="handleStatus(sell_order.id,3)">پرداخت
                     </icon-btn>

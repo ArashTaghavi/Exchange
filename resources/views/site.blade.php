@@ -81,7 +81,7 @@
                                     <li><a  href="/blog">بلاگ</a></li>
                                     <li><a class="smooth_scroll" href="#contact">تماس</a></li>
                                     @if(!Auth::check())
-                                        <li><a href="/login">ورود / ثبت نام</a></li>
+                                        <li><a style="display:inline-block" href="/login">ورود / </a><a style="display:inline-block" href="/register">ثبت نام</a></li>
                                     @else
                                         <li>
                                             <a href={{$panel_address}}>پنل کاربری</a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\BuyOrder;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,9 @@ class DocumentController extends Controller
         $document = $this->getByID($id);
         $document->fill($request->except('profile_picture'));
         $document->fillImage($request);
+        if ($document->getDirty()) {
+            $document->approved = BuyOrder::WAITING;
+        }
         $document->save();
         return ['message' => __('messages.save_success')];
     }

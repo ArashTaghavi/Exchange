@@ -7,4 +7,5 @@ Route::middleware(['web'])->group(function () {
     Route::post('/login', 'Auth\LoginController@login')->name('doLogin');
     Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'Auth\RegisterController@create')->name('doRegister');
+    Route::post('/verify', 'Auth\RegisterController@verify')->name('verify');
 });

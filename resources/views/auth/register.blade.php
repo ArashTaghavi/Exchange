@@ -38,7 +38,8 @@
 <div class="login">
     <div class="login__block" id="l-register" style="display: block">
         <div class="login__block__body">
-            <form action="{{route('doRegister')}}" method="POST">
+            <form action="{{!session()->get('verify_registration') ?
+route('doRegister') : route('verify')}}" method="POST">
                 @csrf
                 @if(!session()->get('verify_registration'))
                     <div class="form-group">
@@ -52,6 +53,11 @@
                     <div class="form-group">
                         <input type="verify" maxlength="11" class="form-control text-center" name="verify"
                                placeholder="کد تایید">
+                        <span class="text-muted">
+                            به دلیل فعال نبودن سامانه پیامکی، از کد تایید زیر استفاده کنید.
+                            <br>
+                            {{session()->get('verify_registration')[0]}}
+                        </span>
                     </div>
                     <button class="btn btn--icon login__block__btn">
                         <i class="zmdi zmdi-plus"></i>
@@ -63,7 +69,6 @@
         </div>
     </div>
 </div>
-
 <!-- Older IE warning message -->
 <!--[if IE]>
 <div class="ie-warning">
