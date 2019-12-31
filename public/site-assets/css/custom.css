@@ -2,6 +2,9 @@
     background: linear-gradient(to right, #0987f4, #003073);
     border-radius: 10px;
 }
+#price,#feature{
+    background: #eee;
+}
 
 #price .panel-title img {
     width: 40px;

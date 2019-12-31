@@ -40,13 +40,13 @@
 }
 .cd-headline.clip .cd-words-wrapper::after {
     right: auto;
-    left: : 0;
+    left: 0;
     width: 2px;
 }
 .discription ul li i {
     font-size: 16px;
     margin-left: 10px;
-    margin-right: ;
+
 }
 .price-box ul li{
   display: block;
