@@ -45,6 +45,16 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::delete('/{currency}', 'CurrencyController@destroy')->name('destroy');
         });
         // ================================ Currency ================================
+
+        // ================================ Currency Equality ================================
+        Route::prefix('currency-equalities')->name('currency-equalities.')->group(function () {
+            Route::get('/', 'CurrencyEqualityController@index')->name('index');
+            Route::get('/{currencyEquality}', 'CurrencyEqualityController@get_by_id')->name('get-by-id');
+            Route::post('/', 'CurrencyEqualityController@store')->name('store');
+            Route::put('/{currencyEquality}', 'CurrencyEqualityController@update')->name('update');
+            Route::delete('/{currencyEquality}', 'CurrencyEqualityController@destroy')->name('destroy');
+        });
+        // ================================ Currency Equality ================================
     });
 
 

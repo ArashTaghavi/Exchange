@@ -18,4 +18,15 @@ class Currency extends Model
     {
         return $this->hasMany(BuyOrder::class);
     }
+
+
+    public function currencyEqualitiesFrom()
+    {
+        return $this->hasMany(CurrencyEquality::class, 'currency_id_from');
+    }
+
+    public function currencyEqualitiesTo()
+    {
+        return $this->hasMany(CurrencyEquality::class, 'currency_id_to');
+    }
 }

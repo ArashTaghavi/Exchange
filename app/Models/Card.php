@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
-    protected $fillable = ['bank_name', 'card_no', 'account_no', 'sheba_no'];
+    protected $fillable = ['bank_name', 'card_no', 'account_no', 'sheba_no', 'is_default'];
 
     const CONFIRM = 1;
     const REJECT = 0;

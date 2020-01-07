@@ -5,6 +5,15 @@ Route::middleware(['web', 'auth:web','IsUser'])->group(function () {
 
     Route::prefix('api/user')->name('user.')->group(function () {
 
+       // ================================ Dashboard ================================
+        Route::prefix('dashboard')->name('dashboard.')->group(function () {
+            Route::get('/requirements', 'DashboardController@requirements')->name('requirements');
+            Route::get('/user-requirements', 'DashboardController@user_requirements')->name('user-requirements');
+            Route::put('/user-set-phone', 'DashboardController@user_set_phone')->name('user-set-phone');
+            Route::get('/user-info', 'DashboardController@user_info')->name('user-info');
+        });
+        // ================================ Dashboard ================================
+
         // ================================ Profile ================================
         Route::prefix('profile')->name('profile.')->group(function () {
             Route::get('/', 'ProfileController@index')->name('index');
@@ -26,6 +35,7 @@ Route::middleware(['web', 'auth:web','IsUser'])->group(function () {
         // ================================ Cards ================================
         Route::prefix('cards')->name('cards.')->group(function () {
             Route::get('/', 'CardController@index')->name('index');
+            Route::get('/approved/card', 'CardController@approved')->name('approved');
             Route::post('/', 'CardController@store')->name('store');
             Route::get('/{id}', 'CardController@getByID')->name('get-by-id');
             Route::put('/{id}', 'CardController@update')->name('update');
@@ -58,6 +68,8 @@ Route::middleware(['web', 'auth:web','IsUser'])->group(function () {
         // ================================ Currencies ================================
         Route::prefix('helper')->name('helper.')->group(function () {
             Route::get('/currencies', 'HelperController@currency')->name('currency');
+            Route::get('/calculate-payment-amount/{value}/{currency_id}/{exchange_type}', 'HelperController@calculate_payment_amount')->name('calculate-payment-amount');
+            Route::post('/buy-and-sell', 'HelperController@buy_and_sell')->name('buy-and-sell');
         });
         // ================================ Currencies ================================
 

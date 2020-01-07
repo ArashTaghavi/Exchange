@@ -20,7 +20,7 @@
 
             <ul class="navigation">
                 <li class="navigation__active">
-                    <router-link to="/"><i class="zmdi zmdi-home"></i>داشبورد</router-link>
+                    <router-link to="/"><i class="zmdi zmdi-home"></i>احراز هویت</router-link>
                 </li>
 
 
@@ -29,6 +29,10 @@
                         <i class="zmdi zmdi-account"></i>
                         پروفایل
                     </router-link>
+                </li>
+
+                <li class="navigation__active">
+                    <router-link to="/buy-and-sell"><i class="zmdi zmdi-money"></i>خرید و فروش</router-link>
                 </li>
 
                 <li class="@@widgetactive">

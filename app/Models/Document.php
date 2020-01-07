@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
-    protected $fillable = ['title', 'profile_image'];
+    protected $fillable = ['profile_image'];
     use HasImage;
 
     public $image_path = 'user/document';

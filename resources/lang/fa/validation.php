@@ -175,7 +175,10 @@ return [
         'currency_id' => 'نوع ارز',
         'symbol' => 'نماد',
         'wage' => 'کارمزد',
-        'mobile'=>'موبایل'
+        'mobile' => 'موبایل',
+        'currency_id_from' => 'ارز مبدا',
+        'currency_id_to' => 'ارز مقصد',
+        'ratio' => 'ضریب برابری'
     ],
 
 ];

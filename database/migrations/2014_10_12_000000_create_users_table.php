@@ -21,15 +21,19 @@ class CreateUsersTable extends Migration
             $table->string('national_code')->nullable();
             $table->text('address')->nullable();
             $table->string('mobile');
+            $table->string('phone')->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('code')->nullable();
             $table->string('password')->nullable();
             $table->string('profile_image')->nullable();
+            $table->tinyInteger('is_admin')->default(0);
+            $table->boolean('verify_phone')->default(false);
             $table->boolean('is_block')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('users')->insert(['mobile' => '09190130120', 'password' => '$2y$10$z6CNcETqyRsFn/1dxWfQ7eG6wpgq4ZwUpJldwDRWwlUq7FsgGmNvW','is_admin'=>0]);
     }
 
     /**

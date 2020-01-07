@@ -19,6 +19,12 @@ import CurrencyCreate from './Components/Currencies/Create';
 import CurrencyEdit from './Components/Currencies/Edit';
 // ================= Currencies =================
 
+// ================= Currencies =================
+import CurrencyEqualities from './Components/CurrencyEqulities/Index';
+import CurrencyEqualityCreate from './Components/CurrencyEqulities/Create';
+import CurrencyEqualityEdit from './Components/CurrencyEqulities/Edit';
+// ================= Currencies =================
+
 
 export default [
     {path: '/', name: 'داشبورد', component: Dashboard},
@@ -41,6 +47,13 @@ export default [
     {path: '/currencies/:id/edit', name: 'ویرایش ارز', component: CurrencyEdit},
 
     // ============================ Currencies ============================
+
+    // ============================ Currencies Equalities ============================
+    {path: '/currency-equalities', name: 'لیست برابری ارزها', component: CurrencyEqualities},
+    {path: '/currency-equalities/create', name: 'ثبت برابری ارز', component: CurrencyEqualityCreate},
+    {path: '/currency-equalities/:id/edit', name: 'ویرایش برابری ارز', component: CurrencyEqualityEdit},
+
+    // ============================ Currencies Equalities ============================
 
 
 ]

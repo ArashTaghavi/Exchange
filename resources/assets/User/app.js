@@ -46,6 +46,7 @@ Vue.component('add-btn', () => import('./../common/Components/AddButton'));
 import App from './App.vue';
 
 window.Vue = Vue;
+window.$ = jQuery;
 
 router.beforeEach((to, from, next) => {
     document.title = ` پنل کاربری - ${to.name}`

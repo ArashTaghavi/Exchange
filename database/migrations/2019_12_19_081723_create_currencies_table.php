@@ -17,6 +17,9 @@ class CreateCurrenciesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('symbol');
+            $table->float('buy');
+            $table->float('sell');
+            $table->float('balance');
             $table->tinyInteger('active')->default(1);
             $table->timestamps();
         });

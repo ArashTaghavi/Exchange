@@ -21,6 +21,12 @@ class CardController extends Controller
         return Card::whereId($id)->whereUserId(Auth::id())->first();
     }
 
+
+    public function approved()
+    {
+        return Card::where('approved', 1)->get();
+    }
+
     public function store(Request $request)
     {
         $this->handleValidate($request);
@@ -44,15 +50,12 @@ class CardController extends Controller
         return ['message' => __('messages.save_success')];
     }
 
-
     public function destroy($id)
     {
         $card = $this->getByID($id);
         $card->delete();
         return ['message' => __('messages.delete_success')];
     }
-
-
 
     public function handleValidate($request)
     {

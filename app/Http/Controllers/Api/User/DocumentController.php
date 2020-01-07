@@ -58,7 +58,6 @@ class DocumentController extends Controller
     public function handleValidate($request)
     {
         $validator = \Validator::make($request->all(), [
-            'title' => 'required',
             'profile_image' => 'required',
         ]);
 
