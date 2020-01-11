@@ -3508,6 +3508,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3561,6 +3567,19 @@ __webpack_require__.r(__webpack_exports__);
         _this4.doing_search = true;
       })["catch"](function (error) {
         return _this4.errorNotify(error);
+      });
+    },
+    handleVerifyPhone: function handleVerifyPhone(id) {
+      var _this5 = this;
+
+      this.deleteConfirm().then(function (confirm) {
+        if (confirm) {
+          axios.get("/users/verify-phone/".concat(id)).then(function (response) {
+            return _this5.getUsers();
+          })["catch"](function (error) {
+            return _this5.errorNotify(error);
+          });
+        }
       });
     },
     resetSearch: function resetSearch() {
@@ -29022,6 +29041,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("th", [_vm._v("موبایل")]),
                     _vm._v(" "),
+                    _c("th", [_vm._v("تلفن")]),
+                    _vm._v(" "),
                     _c("th")
                   ])
                 ]),
@@ -29037,6 +29058,8 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(user.mobile))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(user.phone))]),
                       _vm._v(" "),
                       _c("td", [
                         _c(
@@ -29185,7 +29208,31 @@ var render = function() {
                                       "کارت ها\n                            "
                                     )
                                   ]
-                                )
+                                ),
+                                _vm._v(" "),
+                                user.verify_phone == 0
+                                  ? _c(
+                                      "icon-btn",
+                                      {
+                                        attrs: {
+                                          type: "success",
+                                          icon: "pause"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.handleVerifyPhone(
+                                              user.id
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                تایید تلفن\n                            "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
                               ],
                               1
                             )

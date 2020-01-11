@@ -18,6 +18,7 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::get('/', 'UserController@index')->name('index');
             Route::get('/search/{search_value}', 'UserController@search')->name('search');
             Route::get('/block/{id}', 'UserController@block')->name('block');
+            Route::get('/verify-phone/{id}', 'UserController@verify_phone')->name('verify-phone');
             Route::get('/detail/{id}', 'UserController@detail')->name('detail');
             Route::get('/buy-orders/{id}', 'UserController@buy_orders')->name('buy-orders');
             Route::get('/sell-orders/{id}', 'UserController@sell_orders')->name('sell-orders');

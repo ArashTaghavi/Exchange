@@ -2099,6 +2099,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2106,10 +2114,12 @@ __webpack_require__.r(__webpack_exports__);
       cards: [],
 
       /*sheba_no: '',*/
-      payment_amount: 0
+      payment_amount: 0,
+      access: 0
     };
   },
   created: function created() {
+    this.isVerfiedUser();
     this.getCurrencies();
     this.getCards();
   },
@@ -2132,6 +2142,15 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.errorNotify(error);
       });
     },
+    isVerfiedUser: function isVerfiedUser() {
+      var _this3 = this;
+
+      axios.get('/profile/is-verified-user').then(function (response) {
+        return _this3.access = response.data;
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    },
     handleAccountTypeChange: function handleAccountTypeChange(event) {
       this.form.exchange_type = event.target.value;
       this.form.amount = 0;
@@ -2144,12 +2163,12 @@ __webpack_require__.r(__webpack_exports__);
              .catch(error => this.errorNotify(error));
      },*/
     calculatePaymentAmount: function calculatePaymentAmount() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/helper/calculate-payment-amount/".concat(this.form.amount, "/").concat(this.form.currency_id, "/").concat(this.form.exchange_type)).then(function (response) {
-        return _this3.payment_amount = response.data;
+        return _this4.payment_amount = response.data;
       })["catch"](function (error) {
-        return _this3.errorNotify(error);
+        return _this4.errorNotify(error);
       });
     },
     handleCurrencyChange: function handleCurrencyChange() {
@@ -2157,16 +2176,16 @@ __webpack_require__.r(__webpack_exports__);
       this.payment_amount = 0;
     },
     handleSubmit: function handleSubmit() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.post('/helper/buy-and-sell', this.form).then(function (response) {
-        _this4.successNotify(response);
+        _this5.successNotify(response);
 
-        _this4.form.amount = 0;
-        _this4.payment_amount = 0;
-        _this4.form = {};
+        _this5.form.amount = 0;
+        _this5.payment_amount = 0;
+        _this5.form = {};
       })["catch"](function (error) {
-        return _this4.errorNotify(error);
+        return _this5.errorNotify(error);
       });
     }
   }
@@ -2364,7 +2383,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -3792,13 +3810,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4179,7 +4190,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -27275,340 +27285,373 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.currencies.length > 0
-    ? _c("card", { attrs: { title: _vm.$route.name } }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.currencies, function(currency, index) {
-            return _c(
-              "div",
-              { key: index, staticClass: "col-md-3 currency_box" },
-              [
-                _c("div", { staticClass: "card" }, [
-                  _c("div", { staticClass: "card-body text-center" }, [
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v(
-                        _vm._s(currency.title) +
-                          " (" +
-                          _vm._s(currency.symbol) +
-                          ")"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("b", [_vm._v("خرید از ما : ")]),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(currency.sell) +
-                          "\n                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("b", [_vm._v("فروش به ما : ")]),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(currency.buy) +
-                          "\n                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("b", [_vm._v("موجودی : ")]),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(currency.balance) +
-                          "\n                    "
-                      )
-                    ])
-                  ])
-                ])
-              ]
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exchange_type" } }, [
-                  _vm._v("نوع سفارش")
-                ]),
-                _vm._v(" "),
+  return _vm.access == 1
+    ? _c(
+        "div",
+        {},
+        [
+          _vm.currencies.length > 0
+            ? _c("card", { attrs: { title: _vm.$route.name } }, [
                 _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.exchange_type,
-                        expression: "form.exchange_type"
-                      }
-                    ],
-                    staticClass: "form-control form-control-sm",
-                    attrs: { id: "exchange_type" },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "exchange_type",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        function($event) {
-                          return _vm.handleAccountTypeChange($event)
-                        }
-                      ]
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("خرید از ما")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [
-                      _vm._v("فروش به ما")
-                    ])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "currency_id" } }, [_vm._v("ارز")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.currency_id,
-                        expression: "form.currency_id"
-                      }
-                    ],
-                    staticClass: "form-control form-control-sm",
-                    attrs: { id: "currency_id" },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "currency_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        _vm.handleCurrencyChange
-                      ]
-                    }
-                  },
+                  "div",
+                  { staticClass: "row" },
                   _vm._l(_vm.currencies, function(currency, index) {
                     return _c(
-                      "option",
-                      { key: index, domProps: { value: currency.id } },
+                      "div",
+                      { key: index, staticClass: "col-md-3 currency_box" },
                       [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(currency.title) +
-                            "\n                    "
-                        )
+                        _c("div", { staticClass: "card" }, [
+                          _c("div", { staticClass: "card-body text-center" }, [
+                            _c("h3", { staticClass: "card-title" }, [
+                              _vm._v(
+                                _vm._s(currency.title) +
+                                  " (" +
+                                  _vm._s(currency.symbol) +
+                                  ")"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("b", [_vm._v("خرید از ما : ")]),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(currency.sell) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("b", [_vm._v("فروش به ما : ")]),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(currency.buy) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("b", [_vm._v("موجودی : ")]),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(currency.balance) +
+                                  "\n                        "
+                              )
+                            ])
+                          ])
+                        ])
                       ]
                     )
                   }),
                   0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm.form.exchange_type == 2
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "cards" } }, [
-                      _vm._v("کارت بانکی")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  [
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "exchange_type" } }, [
+                          _vm._v("نوع سفارش")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.card_id,
-                            expression: "form.card_id"
-                          }
-                        ],
-                        staticClass: "form-control form-control-sm",
-                        attrs: { id: "cards" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.form,
-                              "card_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          }
-                        }
-                      },
-                      _vm._l(_vm.cards, function(card, index) {
-                        return _c(
-                          "option",
-                          { key: index, domProps: { value: card.id } },
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.exchange_type,
+                                expression: "form.exchange_type"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: { id: "exchange_type" },
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "exchange_type",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                                function($event) {
+                                  return _vm.handleAccountTypeChange($event)
+                                }
+                              ]
+                            }
+                          },
                           [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(card.bank_name) +
-                                "\n                    "
-                            )
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("خرید از ما")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("فروش به ما")
+                            ])
                           ]
                         )
-                      }),
-                      0
-                    )
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.form.exchange_type == 1
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "public_key" } }, [
-                      _vm._v("شماره حساب ارزی")
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.public_key,
-                          expression: "form.public_key"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text", id: "public_key" },
-                      domProps: { value: _vm.form.public_key },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "currency_id" } }, [
+                          _vm._v("ارز")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.currency_id,
+                                expression: "form.currency_id"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: { id: "currency_id" },
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "currency_id",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                                _vm.handleCurrencyChange
+                              ]
+                            }
+                          },
+                          _vm._l(_vm.currencies, function(currency, index) {
+                            return _c(
+                              "option",
+                              { key: index, domProps: { value: currency.id } },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(currency.title) +
+                                    "\n                        "
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.form.exchange_type == 2
+                      ? _c("div", { staticClass: "col-md-3" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "cards" } }, [
+                              _vm._v("کارت بانکی")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.card_id,
+                                    expression: "form.card_id"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: { id: "cards" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.form,
+                                      "card_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(_vm.cards, function(card, index) {
+                                return _c(
+                                  "option",
+                                  { key: index, domProps: { value: card.id } },
+                                  [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(card.bank_name) +
+                                        "\n                        "
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.form.exchange_type == 1
+                      ? _c("div", { staticClass: "col-md-3" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "public_key" } }, [
+                              _vm._v("شماره حساب ارزی")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.public_key,
+                                  expression: "form.public_key"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: { type: "text", id: "public_key" },
+                              domProps: { value: _vm.form.public_key },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "public_key",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "amount" } }, [
+                          _vm._v("مبلغ ارزی")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.amount,
+                              expression: "form.amount"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          attrs: { type: "text", id: "amount" },
+                          domProps: { value: _vm.form.amount },
+                          on: {
+                            keyup: _vm.calculatePaymentAmount,
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "amount", $event.target.value)
+                            }
                           }
-                          _vm.$set(_vm.form, "public_key", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "amount" } }, [
-                  _vm._v("مبلغ ارزی")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.amount,
-                      expression: "form.amount"
-                    }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "payment_amount" } }, [
+                          _vm._v("مبلغ قابل پرداخت")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.payment_amount,
+                              expression: "payment_amount"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          attrs: {
+                            type: "text",
+                            id: "payment_amount",
+                            disabled: ""
+                          },
+                          domProps: { value: _vm.payment_amount },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.payment_amount = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("submit", { on: { click: _vm.handleSubmit } })
                   ],
-                  staticClass: "form-control form-control-sm",
-                  attrs: { type: "text", id: "amount" },
-                  domProps: { value: _vm.form.amount },
-                  on: {
-                    keyup: _vm.calculatePaymentAmount,
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form, "amount", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "payment_amount" } }, [
-                  _vm._v("مبلغ قابل پرداخت")
-                ]),
+                  1
+                ),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.payment_amount,
-                      expression: "payment_amount"
-                    }
-                  ],
-                  staticClass: "form-control form-control-sm",
-                  attrs: { type: "text", id: "payment_amount", disabled: "" },
-                  domProps: { value: _vm.payment_amount },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.payment_amount = $event.target.value
-                    }
-                  }
-                })
+                _c("div", { staticClass: "row" })
               ])
-            ]),
-            _vm._v(" "),
-            _c("submit", { on: { click: _vm.handleSubmit } })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" })
+            : _c(
+                "card",
+                { attrs: { title: _vm.$route.name } },
+                [_c("not-found")],
+                1
+              )
+        ],
+        1
+      )
+    : _c("div", { staticClass: "col-md-12 text-center" }, [
+        _c("h5", { staticClass: "alert alert-warning" }, [
+          _vm._v(
+            "\n        تا قبل از تکمیل مراحل احراز هویت مجاز به انجام معامله نیستید.\n    "
+          )
+        ])
       ])
-    : _c("card", { attrs: { title: _vm.$route.name } }, [_c("not-found")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -27936,8 +27979,6 @@ var render = function() {
     "card",
     { attrs: { title: "لیست سفارشات خرید" } },
     [
-      _c("add-btn", { attrs: { to: "buy-orders" } }),
-      _vm._v(" "),
       _vm.buy_orders.length > 0
         ? _c("div", { staticClass: "row" }, [
             _c(
@@ -30441,17 +30482,44 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "navigation__active" },
-          [
-            _c("router-link", { attrs: { to: "/buy-and-sell" } }, [
-              _c("i", { staticClass: "zmdi zmdi-money" }),
-              _vm._v("خرید و فروش")
-            ])
-          ],
-          1
-        ),
+        _c("li", { staticClass: "navigation__sub @@variantsactive" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("ul", [
+            _c(
+              "li",
+              { staticClass: "@@sidebaractive" },
+              [
+                _c("router-link", { attrs: { to: "/buy-and-sell" } }, [
+                  _vm._v("ثبت خرید و فروش")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "@@boxedactive" },
+              [
+                _c("router-link", { attrs: { to: "/sell-orders" } }, [
+                  _vm._v("لیست فروش")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "@@hiddensidebarboxedactive" },
+              [
+                _c("router-link", { attrs: { to: "/buy-orders" } }, [
+                  _vm._v("لیست خرید")
+                ])
+              ],
+              1
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "li",
@@ -30481,30 +30549,6 @@ var render = function() {
           "li",
           { staticClass: "@@widgetactive" },
           [
-            _c("router-link", { attrs: { to: "/buy-orders" } }, [
-              _c("i", { staticClass: "zmdi zmdi-collection-text" }),
-              _vm._v("\n                    سفارشات خرید\n                ")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "@@widgetactive" },
-          [
-            _c("router-link", { attrs: { to: "/sell-orders" } }, [
-              _c("i", { staticClass: "zmdi zmdi-collection-text" }),
-              _vm._v("\n                    سفارشات فروش\n                ")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "@@widgetactive" },
-          [
             _c("router-link", { attrs: { to: "/financial" } }, [
               _c("i", { staticClass: "zmdi zmdi-trending-up" }),
               _vm._v("\n                    گزارشات مالی\n                ")
@@ -30525,7 +30569,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(2)
       ])
     ])
   ])
@@ -30551,6 +30595,15 @@ var staticRenderFns = [
       _c("a", { staticClass: "dropdown-item", attrs: { href: "/logout" } }, [
         _vm._v("خروج")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "default.htm" } }, [
+      _c("i", { staticClass: "zmdi zmdi-view-week" }),
+      _vm._v("خرید و فروش")
     ])
   },
   function() {
@@ -31410,8 +31463,6 @@ var render = function() {
     "card",
     { attrs: { title: "" + _vm.$route.name } },
     [
-      _c("add-btn", { attrs: { to: "sell-orders" } }),
-      _vm._v(" "),
       _vm.sell_orders.length > 0
         ? _c("div", { staticClass: "row" }, [
             _c(

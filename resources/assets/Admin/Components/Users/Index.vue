@@ -15,6 +15,7 @@
                 <tr>
                     <th>نام</th>
                     <th>موبایل</th>
+                    <th>تلفن</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -22,6 +23,7 @@
                 <tr v-for="user in users">
                     <td>{{user.first_name}} {{user.last_name}}</td>
                     <td>{{user.mobile}}</td>
+                    <td>{{user.phone}}</td>
                     <td>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
@@ -46,6 +48,10 @@
                                 </link-btn>
                                 <link-btn type="info" icon="card" :to="`/user/${user.id}/cards`">کارت ها
                                 </link-btn>
+                                <icon-btn type="success" icon="pause" v-if="user.verify_phone==0"
+                                          @click="handleVerifyPhone(user.id)">
+                                    تایید تلفن
+                                </icon-btn>
                             </div>
                         </div>
                     </td>
@@ -102,6 +108,16 @@
                         this.doing_search = true;
                     })
                     .catch(error => this.errorNotify(error));
+            },
+            handleVerifyPhone(id) {
+                this.deleteConfirm()
+                    .then(confirm => {
+                        if (confirm) {
+                            axios.get(`/users/verify-phone/${id}`)
+                                .then(response => this.getUsers())
+                                .catch(error => this.errorNotify(error));
+                        }
+                    });
             },
             resetSearch() {
                 this.search_value = '';

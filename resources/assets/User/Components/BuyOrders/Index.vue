@@ -1,6 +1,5 @@
 <template>
     <card title="لیست سفارشات خرید">
-        <add-btn to="buy-orders"/>
         <div class="row" v-if="buy_orders.length>0">
             <table class="table table-hover mb-0 table-responsive">
                 <thead>

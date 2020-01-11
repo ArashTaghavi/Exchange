@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
         DB::table('users')->insert(['mobile' => '09190130120', 'password' => '$2y$10$z6CNcETqyRsFn/1dxWfQ7eG6wpgq4ZwUpJldwDRWwlUq7FsgGmNvW','is_admin'=>0]);
+        DB::table('users')->insert(['mobile' => '09190130130', 'password' => '$2y$10$z6CNcETqyRsFn/1dxWfQ7eG6wpgq4ZwUpJldwDRWwlUq7FsgGmNvW','is_admin'=>1]);
     }
 
     /**

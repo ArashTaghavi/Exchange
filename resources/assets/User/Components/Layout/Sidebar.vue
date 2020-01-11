@@ -30,9 +30,14 @@
                         پروفایل
                     </router-link>
                 </li>
+                <li class="navigation__sub @@variantsactive">
+                    <a href="default.htm"><i class="zmdi zmdi-view-week"></i>خرید و فروش</a>
 
-                <li class="navigation__active">
-                    <router-link to="/buy-and-sell"><i class="zmdi zmdi-money"></i>خرید و فروش</router-link>
+                    <ul>
+                        <li class="@@sidebaractive"><router-link to="/buy-and-sell">ثبت خرید و فروش</router-link></li>
+                        <li class="@@boxedactive"><router-link to="/sell-orders">لیست فروش</router-link></li>
+                        <li class="@@hiddensidebarboxedactive"><router-link to="/buy-orders">لیست خرید</router-link></li>
+                    </ul>
                 </li>
 
                 <li class="@@widgetactive">
@@ -45,18 +50,6 @@
                     <router-link to="/cards">
                         <i class="zmdi zmdi-card"></i>
                         مدیریت کارت ها
-                    </router-link>
-                </li>
-                <li class="@@widgetactive">
-                    <router-link to="/buy-orders">
-                        <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات خرید
-                    </router-link>
-                </li>
-                <li class="@@widgetactive">
-                    <router-link to="/sell-orders">
-                        <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات فروش
                     </router-link>
                 </li>
                 <li class="@@widgetactive">

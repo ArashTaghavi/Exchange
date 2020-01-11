@@ -39,9 +39,8 @@ class DashboardController extends Controller
     {
         $user_info = User::with(['cards', 'documents'])->where('id', Auth::id())->first();
         $phone_status = $user_info->verify_phone ? true : false;
-        $document_status = empty($user_info->documents) ? false : true;
+        $document_status = count($user_info->documents)==0 ? false : true;
         $card_status = false;
-
         if ($user_info->cards != null) {
             foreach ($user_info->cards as $card) {
                 if ($card->approved == Card::CONFIRM) {

@@ -1,6 +1,5 @@
 <template>
     <card :title="`${$route.name}`">
-        <add-btn to="sell-orders"/>
         <div class="row" v-if="sell_orders.length>0">
             <table class="table table-hover mb-0 table-responsive">
                 <thead>

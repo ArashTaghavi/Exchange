@@ -69,9 +69,9 @@ class UserController extends Controller
     }
 
     public function buy_order_search($id, $status)
-{
-    return BuyOrder::with('currency')->where('user_id', $id)->where('status', $status)->get();
-}
+    {
+        return BuyOrder::with('currency')->where('user_id', $id)->where('status', $status)->get();
+    }
 
     public function sell_order_search($id, $status)
     {
@@ -96,5 +96,18 @@ class UserController extends Controller
     public function document_approved($id, $confirmation)
     {
         Document::where('id', $id)->where('approved', '!=', Document::REJECT)->update(['approved' => $confirmation]);
+    }
+
+    public function verify_phone($id)
+    {
+        $user = User::find($id);
+        $user->verify_phone = 1;
+        $user->save();
+
+        //  $notify = new Notification();
+        // $notify->notification_detail_id = NotificationDetail::PHONE_CONFIRM;
+        //$notify->user_id = $user->id;
+        //$notify->save();
+        return ['message' => __('messages.save_success')];
     }
 }
