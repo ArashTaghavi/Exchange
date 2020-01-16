@@ -2853,6 +2853,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -26379,7 +26385,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "col-md-3" }, [
             _c("label", { attrs: { for: "currency_id_to" } }, [
-              _vm._v("ارز مبدا")
+              _vm._v("ارز مقصد")
             ]),
             _vm._v(" "),
             _c(
@@ -27699,6 +27705,18 @@ var render = function() {
             _c("router-link", { attrs: { to: "/currencies" } }, [
               _c("i", { staticClass: "zmdi zmdi-card" }),
               _vm._v("\n                    مدیریت ارز ها\n                ")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "@@widgetactive" },
+          [
+            _c("router-link", { attrs: { to: "/currency-equalities" } }, [
+              _c("i", { staticClass: "zmdi zmdi-card" }),
+              _vm._v("\n                    برابری ارز ها\n                ")
             ])
           ],
           1

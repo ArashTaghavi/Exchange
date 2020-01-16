@@ -10,7 +10,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="currency_id_to">ارز مبدا</label>
+                <label for="currency_id_to">ارز مقصد</label>
                 <select name="" id="currency_id_to" v-model="form.currency_id_to" class="form-control form-control-sm">
                     <option v-for="(currency,index) in currencies" :key=index :value=currency.id>{{currency.title}}
                     </option>

@@ -44,6 +44,12 @@
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
+                    <router-link to="/currency-equalities">
+                        <i class="zmdi zmdi-card"></i>
+                        برابری ارز ها
+                    </router-link>
+                </li>
+                <li class="@@widgetactive">
                     <router-link to="/change-password">
                         <i class="zmdi zmdi-lock"></i>
                         تغییر کلمه عبور
