@@ -18,10 +18,10 @@
         <div class="row" v-if="cards.length>0">
             <div class="col-md-4" v-for="(card,index) in cards" :key=index>
                 <div class="card">
-                    <icon-btn type="success" style="position:absolute;left:5px;top:5px" v-if="card.approved===2"
+                    <icon-btn type="success" style="position:absolute;left:5px;top:5px" v-if="card.approved==2"
                               icon="check" @click="handleApproved(card.id,1)">تایید
                     </icon-btn>
-                    <icon-btn type="danger" style="position:absolute;left:70px;top:5px" v-if="card.approved===2"
+                    <icon-btn type="danger" style="position:absolute;left:70px;top:5px" v-if="card.approved==2"
                               icon="check" @click="handleApproved(card.id,0)">رد
                     </icon-btn>
                     <div class="card-body">
@@ -76,14 +76,13 @@
                     .catch(error => this.errorNotify(error));
             },
             approved(approved) {
-                switch (approved) {
-                    case 0:
-                        return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-                    case 1:
-                        return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> تایید شده </span>';
-                    default :
-                        return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
-                }
+                if (approved == 0)
+                    return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
+                else if (approved == 1)
+                    return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> تایید شده </span>';
+                else
+                    return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
+
             },
             jDate(date) {
                 return moment(date).format('jYYYY/jM/jD');

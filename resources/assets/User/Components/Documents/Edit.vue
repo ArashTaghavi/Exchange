@@ -1,13 +1,6 @@
 <template>
     <card title="ویرایش مدرک">
         <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="title">عنوان مدرک</label>
-                    <input type="text" v-model="form.title" id="title"
-                           class="form-control form-control-sm" placeholder="عنوان مدرک را اینجا وارد نمایید..">
-                </div>
-            </div>
             <div class="col-md-12 text-right mt-3">
                 <div class="form-group">
                     <cropper-portlet v-model="form.profile_image" title="تصویر مدرک" place="right"/>
